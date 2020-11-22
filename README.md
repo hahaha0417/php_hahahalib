@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # php_hahahalib
 php hahahalib
 
@@ -32,3 +33,7 @@ php hahahalib
 
  
 ## 版權請看license
+=======
+# [php] hahahalib
+hahaha library - kernel
+>>>>>>> 9c4f7a1169e260b7bf779438c2f2e693dbc24f03
