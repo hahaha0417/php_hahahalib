@@ -1,5 +1,5 @@
-# php_hahahalib
-php hahahalib
+# [php] hahahalib
+核心函式庫
 
 
 <br>
