@@ -1,0 +1,8 @@
+// Redis
+https://github.com/dmajkic/redis
+https://github.com/microsoftarchive/redis/releases *
+https://redislabs.com/ebook/appendix-a/a-3-installing-on-windows/a-3-2-installing-redis-on-window/
+http://blog.itpub.net/26736162/viewspace-2564380/
+
+// Memcached
+https://xyz.cinc.biz/2014/08/windows-install-php-memcache.html

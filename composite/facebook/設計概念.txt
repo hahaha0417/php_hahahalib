@@ -1,0 +1,16 @@
+原則上只綁官方facebook/php-graph-sdk
+https://github.com/facebook/php-graph-sdk/tree/master
+目前暫時綁定ker0x/messenger(因為我東西還沒寫出來，怕需要一些進階的有需求)
+https://github.com/ker0x/messenger
+他是完整的，說明也完整
+
+後期原則上同步官方的sdk，官方的是用post方式呼叫api
+因此我這邊採取腳本模式，就是提供不同腳本，簡易呼叫使用，而不做過度組合，如要組合請參考我的Code寫在專案內，
+我只是打算將寫好的post放到腳本內直接使用，而不是弄很複雜的架構處理
+完整後再決定是否要放進去hahahalib
+
+我這邊會提供一組寫好的設定，只要將設定貼過去，將要使用的東西取消註解，則可以使用
+不用條件判斷處理require是因為我覺得將require寫在function內看起來怪怪的
+
+
+https://developers.facebook.com/docs/messenger-platform/send-messages/

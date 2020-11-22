@@ -1,0 +1,46 @@
+// -----------------------------------------------------------
+O .O
+b
+// -----------------------------------------------------------
+
+// -----------------------------------------------------------
+基於不想整入composer(因為我沒要一直維護，我也不會寫composer) & 效率問題
+
+因此這邊用傳統的require方式，而我的處理方法，則是寫小工具，預先建立產生使用上需要的所有東西(require & namespace & new & case)
+所以只需要複製 + 貼上，並且我準備好基本使用方式，照著用就可以了
+
+如果覺得要是路徑修改 or namespace修改要所有的文件都修改，舉個例laravel改路徑也是全部要改，composer改namespace也是全部要改
+那我這邊也是要改，其實差不多
+
+大不了我這樣寫
+require_once "hahahalib\xxx\jquery";
+use hahaha/jquery
+
+require_once "hahahalib\xxx\parser";
+use hahaha/parser
+
+然後用貼的，也是一次複製貼上，沒有比較慢
+只是多require_once一倍使用前程式碼，還OK拉
+// -----------------------------------------------------------
+所以採用為 - 階層式架構，下層可以使用上層，上層不可以使用下層模組
+hahahalib\native - 只准綁定php內建
+hahahalib\extend - 繼承修改，只准綁定php內建 & composer & 本身
+hahahalib\composite - 組合，只准綁定php內建 & composer & 繼承修改 & 本身
+
+hahahalib\test - 待整入，只准綁定php內建 & composer & 繼承修改 & 本身
+hahahalib\dump - 冗餘，只准綁定php內建 & composer & 繼承修改 & 本身
+hahahalib\garbage - 待刪，只准綁定php內建 & composer & 繼承修改 & 本身
+hahahalib\depot - 倉庫，不使用
+
+有"pass"檔案的資料夾不使用
+
+app\hahahalib\native - 照框架寫法，綁定php內建 & composer & 框架
+app\hahahalib\extend - 繼承修改，綁定php內建 & composer & 繼承修改 & 框架
+app\hahahalib\composite - 組合，綁定php內建 & composer & 繼承修改 & 框架
+
+至於library內如果要綁死特定模組，ex Zend Framework or Doctrine，則由架構師決定
+// -----------------------------------------------------------
+不取複數因為覺得不好看
+有效能要求的用reference - 但請標記，因為很危險
+沒有效能要求的隨便 - 因為laravel夠慢了，小地方多複製幾次記憶體無所謂，儘管他是核心模組(這是因為我沒要做PHP框架，不然我會要求要用reference做)
+// -----------------------------------------------------------

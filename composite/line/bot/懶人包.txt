@@ -1,0 +1,36 @@
+<?php
+// https://github.com/line/line-bot-sdk-php
+// composer require linecorp/line-bot-sdk
+
+// 注意接收是Post
+
+$linebot_ = new \hahahalib\linebot(
+	'x/eb6xIldWmwn38EPY8y2lhQJKln2QIrCrikJfUvdxjVnlsGEuFkfSey7V+a0ucKL+lhNUm9YwUwyLmzOJ2RNY7qmPMu5XEp8/SXvG03peOJ69PTF7ZZu0D6Lor5Z+nsc7l2oQ/iGYafjEbVIvuHqAdB04t89/1O/w1cDnyilFU=',
+	'742e69bbc26d797d8cfdbe7be93a1862'
+);
+
+$linebot_reply_message_ = new \hahahalib\linebot_reply_message;
+//$linebot_push_message_ = new \hahahalib\linebot_push_message;
+//$linebot_multicast_ = new \hahahalib\linebot_multicast;
+//$linebot_broadcast_ = new \hahahalib\linebot_broadcast;
+		
+$linebot_reply_message_->Handle($linebot_, function(&$linebot_reply_message, &$event){
+	// 陣列裡面是物件
+	// http://hiroasake.blogspot.com/2018/10/line-botphp-bot.html
+	$message = "";
+	$command = strtolower($event->getText());
+	// 特殊狀況寫法
+	//if($command) 
+	//{
+	//}
+
+	switch($command)
+	{
+		case 'text':
+		{					
+			// bot dirty logic
+			$result = $linebot_reply_message->Text($event, "文字");
+		}
+		break;
+	}
+};

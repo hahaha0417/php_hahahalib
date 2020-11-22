@@ -1,0 +1,75 @@
+https://ithelp.ithome.com.tw/articles/10156209
+json_encode json_decode 
+base64_encode base64_decode 
+urlencode urldecode 
+
+// 有這些可用
+/*
+md5_file() - 计算指定文件的 MD5 散列值
+sha1_file() - 计算文件的 sha1 散列值
+crc32() - 计算一个字符串的 crc32 多项式
+sha1() - 计算字符串的 sha1 散列值
+hash() - 生成哈希值 （消息摘要）
+crypt() - 单向字符串散列
+password_hash() - 创建密码的散列（hash）
+md5() - 计算字符串的 MD5 散列值
+hash_equals() - 可防止时序攻击的字符串比较
+Mcrypt 扩展 * 
+*/
+
+// http://php.net/manual/zh/function.crypt.php
+if (CRYPT_STD_DES == 1) {
+    // "./0-9A-Za-z" 字符中的两个字符作为盐值
+    echo 'Standard DES: ' . crypt('rasmuslerdorf', 'rl') . "\n"."<br>";
+}
+
+
+if (CRYPT_EXT_DES == 1) {
+    // "./0-9A-Za-z" 字符
+    // 由 1 个下划线后面跟着 4 字节循环次数和 4 字节盐值组成。
+    echo 'Extended DES: ' . crypt('rasmuslerdorf', '_J9..rasm') . "\n"."<br>";
+}
+
+
+if (CRYPT_MD5 == 1) {
+    // $1$ 开始的 12 字符的字符串盐值
+    echo 'MD5:          ' . crypt('rasmuslerdorf', '$1$rasmusle$') . "\n"."<br>";
+}
+
+
+if (CRYPT_BLOWFISH == 1) {
+    // 开发者如果仅针对 PHP 5.3.7及之后版本进行开发，那应该使用 “$2y$” 而非 “$2a$”
+    // “$2a$”，一个两位 cost 参数，“$” 以及 64 位由 “./0-9A-Za-z” 中的字符组合而成的字符串
+    // 两位 cost 参数是循环次数以 2 为底的对数，它的范围是 04-31
+    echo 'Blowfish:     ' . crypt('rasmuslerdorf', '$2a$07$usesomesillystringforsalt$') . "\n"."<br>";
+}
+
+
+if (CRYPT_SHA256 == 1) {
+    // 以 $5$ 开头的 16 字符字符串盐值进行散列。如果盐值字符串以 “rounds=<N>$” 开头，
+    // N 的数字值将被用来指定散列循环的执行次数，这点很像 Blowfish 算法的 cost 参数。
+    // 默认的循环次数是 5000，最小是 1000，最大是 999,999,999。超出这个范围的 N 将会被转换为最接近的值
+    echo 'SHA-256:      ' . crypt('rasmuslerdorf', '$5$rounds=5000$usesomesillystringforsalt$') . "\n"."<br>";
+}
+
+if (CRYPT_SHA512 == 1) {
+    // 以 $6$ 开头的 16 字符字符串盐值进行散列。如果盐值字符串以 “rounds=<N>$” 开头，
+    // N 的数字值将被用来指定散列循环的执行次数，这点很像 Blowfish 算法的 cost 参数。
+    // 默认的循环次数是 5000，最小是 1000，最大是 999,999,999。超出这个范围的 N 将会被转换为最接近的值。
+    echo 'SHA-512:      ' . crypt('rasmuslerdorf', '$6$rounds=5000$usesomesillystringforsalt$') . "\n"."<br>";
+}
+
+// 如下，自己編出來的密碼，餵給自己，會產出相同字串
+echo 'Standard DES: ' . crypt('rasmuslerdorf', 'rl') . "\n"."<br>";
+echo 'Standard DES: ' . crypt('rasmuslerdorf', crypt('rasmuslerdorf', 'rl')) . "\n"."<br>";
+
+// Standard DES: rl.3StKT.4T8M 
+// Standard DES: rl.3StKT.4T8M
+
+// 各種編碼都是
+// https://www.youtube.com/watch?v=wIRtl8CwgIc
+// 這是單向的，不可還原
+
+// 字數超過則沒作用
+
+// 總之照格式填，格式外的不要超過字數即可

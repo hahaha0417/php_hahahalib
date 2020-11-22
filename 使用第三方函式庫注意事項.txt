@@ -1,0 +1,8 @@
+http://inspiregate.com/internet/trends/74-comparison-of-five-kinds-of-standard-open-source-license-bsd-apache-gpl-lgpl-mit.html
+MIT & BSD & LGPL可以用
+但是綁定到hahahalib裡則要問過hahaha，
+綁進來要是停止維護會變成呆帳
+
+Apache Licene 2.0 可以用，但是要寫Apache Licene 2.0聲明
+
+GPL太爛了，沒事不要用，使用了變成我的所有東西要開源...

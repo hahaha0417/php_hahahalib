@@ -1,0 +1,18 @@
+
+ ------------------------------------------- 
+使用 - swoole & ratchetphp  
+ 
+ ------------------------------------------- 
+
+
+https://github.com/ratchetphp/Pawl client
+https://github.com/ratchetphp/Ratchet server
+
+似乎沒得選
+
+不然要用swoole
+https://www.swoole.co.uk/docs/modules/swoole-async-http-client
+
+ ------------------------------------------- 
+textalk/websocket 是簡易single stream(似乎是一個人用的)
+https://github.com/Textalk/websocket-php
