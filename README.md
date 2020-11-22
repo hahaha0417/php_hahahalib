@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # php_hahahalib
 php hahahalib
 
@@ -10,7 +9,7 @@ php hahahalib
 <br>
 <br>
 
-<img src='https://github.com/hahaha0417/hahahalib/blob/main/hahahalib.png' width=100%>
+<img src='https://github.com/hahaha0417/php_hahahalib/blob/main/hahahalib.png' width=100%>
 
 
 <br>
@@ -33,7 +32,4 @@ php hahahalib
 
  
 ## 版權請看license
-=======
-# [php] hahahalib
-hahaha library - kernel
->>>>>>> 9c4f7a1169e260b7bf779438c2f2e693dbc24f03
+
