@@ -23,13 +23,65 @@ class hahaha_file
 
     }
 
+	/*
+	$filter = [
+		"php", 
+		"txt"
+	];
+	*/
+	public function Recursive_File(&$list = [], $dir, &$filter = []) {
+		if (is_dir($dir)) 
+		{ 
+			$dir_object_ = opendir($dir);
+			while(( $file_ = readdir($dir_object_)) ) {
+				if (( $file_ != '.' ) && ( $file_ != '..' )) {
+					if ( is_dir($dir . '/' . $file_) ) {
+						$this->Recursive_File($list, $dir .'/'. $file_, $filter);						
+					}
+					else {
+						if(!empty($filter)) {
+							// 似乎 $file_不是變數
+							$temp_ = explode('.', $file_);
+							$ext_ = end($temp_);
+							if(in_array($ext_, $filter)) {
+								$list[] = $dir . '/' . $file_;
+							}
+						} else {
+							$list[] = $dir . '/' . $file_;
+						}
+					}
+				}
+			}
+			closedir($dir_object_);
+		}
+	}
+
+	public function Recursive_Directory(&$list = [], $dir) {
+		if (is_dir($dir)) 
+		{ 
+			$dir_object_ = opendir($dir);
+			while(( $file_ = readdir($dir_object_)) ) {
+				if (( $file_ != '.' ) && ( $file_ != '..' )) {
+					if ( is_dir($dir . '/' . $file_) ) {
+						$list[] = $dir . '/' . $file_;
+						$this->Recursive_Directory($list, $dir .'/'. $file_);						
+					}
+					else {
+						// $list[] = $dir . '/' . $file_;
+					}
+				}
+			}
+			closedir($dir_object_);
+		}
+	}
+
 	// https://gist.github.com/gserrano/4c9648ec9eb293b9377b
 	public function Recursive_Copy($src, $dst) {
 		if (is_dir($src)) 
 		{ 
-			$dir_ = opendir($src);
+			$dir_object_ = opendir($src);
 			@mkdir($dst);
-			while(( $file_ = readdir($dir_)) ) {
+			while(( $file_ = readdir($dir_object_)) ) {
 				if (( $file_ != '.' ) && ( $file_ != '..' )) {
 					if ( is_dir($src . '/' . $file_) ) {
 						$this->Recursive_Copy($src .'/'. $file_, $dst . '/' . $file_);
@@ -39,7 +91,7 @@ class hahaha_file
 					}
 				}
 			}
-			closedir($dir_);
+			closedir($dir_object_);
 		}
 	}
 	
