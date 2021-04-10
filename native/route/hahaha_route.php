@@ -525,17 +525,32 @@ class hahaha_route
 					$namespace_ = $node_now_data_['Namespace'] . $this->Namespace;
 				}	
 		
-				$node_[$this->Token_Node_] = [
-					// 重要參數
-					'Type' => self::CONSTANT_GROUP,
-					'Parameter' => $parameter,
-					'Callback' => $callback,
-					//
-					'Prefix' => $node_now_data_['Prefix'] . $this->Prefix,
-					
-					'Middleware' => $middleware_,
-					'Namespace' => $namespace_,
-				];	
+				if(!empty($node_now_data_['Prefix'])) {
+					$node_[$this->Token_Node_] = [
+						// 重要參數
+						'Type' => self::CONSTANT_GROUP,
+						'Parameter' => $parameter,
+						'Callback' => $callback,
+						//
+						'Prefix' => $node_now_data_['Prefix'] . $this->Prefix,
+						
+						'Middleware' => $middleware_,
+						'Namespace' => $namespace_,
+					];	
+				} else {
+					$node_[$this->Token_Node_] = [
+						// 重要參數
+						'Type' => self::CONSTANT_GROUP,
+						'Parameter' => $parameter,
+						'Callback' => $callback,
+						//
+						'Prefix' => $this->Prefix,
+						
+						'Middleware' => $middleware_,
+						'Namespace' => $namespace_,
+					];	
+				}
+				
 
 				// callback重置
 				$node_[$this->Token_Parameter_]['Expand'] = false;
