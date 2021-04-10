@@ -84,12 +84,12 @@ class hahaha_db_mysql{
 		
     }
 
-    public function Connect($host, $user, $password, $database){
+    public function Connect($host, $user, $password, $database, $port = "3306"){
         $this->Host_ = $host;
         $this->User_ = $user;
         $this->Password_ = $password;
         $this->Database_ = $database;
-        $this->Mysqli_ = new \mysqli($host, $user, $password, $database);        
+        $this->Mysqli_ = new \mysqli($host, $user, $password, $database, $port);        
     
     }
 

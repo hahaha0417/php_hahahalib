@@ -153,6 +153,7 @@ class hahaha_orm_doctrine
         $conn_ = [
             'driver' => $option_->Mysql->Driver,
             'host' => $option_->Mysql->Host,
+			'port' => $option_->Mysql->Port,
             'user' => $option_->Mysql->User,
             'password' => $option_->Mysql->Password,
             'dbname' => $option_->Mysql->Db_Name,
@@ -212,6 +213,7 @@ class hahaha_orm_doctrine
         $conn_ = [
             'driver' => $option_->Mysql->Driver,
             'host' => $option_->Mysql->Host,
+			'port' => $option_->Mysql->Port,
             'user' => $option_->Mysql->User,
             'password' => $option_->Mysql->Password,
             'dbname' => $db_name_,
