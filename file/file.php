@@ -8,14 +8,16 @@ class file
     use \hahahalib\instance;
 
     // 刪除整個資料夾
-    public function Delete_Tree($dir) {
+    public function Delete_Tree($dir) 
+    {
         if(!is_dir($dir))
         {
             return false;
         }
         $files = scandir($dir);
 
-        foreach ($files as $key => &$value) {
+        foreach ($files as $key => &$value) 
+        {
             $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
             if (!is_dir($path)) {
                 unlink($path);
@@ -34,14 +36,16 @@ class file
     }
 
     // 取得所有資料夾和檔案
-    public function Get_Directory_And_File_All($dir, &$results = []) {
+    public function Get_Directory_And_File_All($dir, &$results = []) 
+    {
         if(!is_dir($dir))
         {
             return false;
         }
         $files = scandir($dir);
 
-        foreach ($files as $key => &$value) {
+        foreach ($files as $key => &$value) 
+        {
             $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
             if (!is_dir($path)) {
                 $results[] = $path;
@@ -55,14 +59,16 @@ class file
     }
 
     // 取得所有目錄
-    public function Get_Directory_All($dir, &$results = []) {
+    public function Get_Directory_All($dir, &$results = []) 
+    {
         if(!is_dir($dir))
         {
             return false;
         }
         $files = scandir($dir);
 
-        foreach ($files as $key => &$value) {
+        foreach ($files as $key => &$value) 
+        {
             $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
             if (!is_dir($path)) {
                 // $results[] = $path;
@@ -76,14 +82,16 @@ class file
     }
 
     // 取得所有檔案
-    public function Get_File_All($dir, &$results = []) {
+    public function Get_File_All($dir, &$results = []) 
+    {
         if(!is_dir($dir))
         {
             return false;
         }
         $files = scandir($dir);
 
-        foreach ($files as $key => &$value) {
+        foreach ($files as $key => &$value) 
+        {
             $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
             if (!is_dir($path)) {
                 $results[] = $path;
