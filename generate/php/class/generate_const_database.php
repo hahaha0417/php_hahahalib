@@ -7,7 +7,7 @@ namespace hahahalib;
 use hahahalib\generate_const_database as generate_const_database;
 
 */
-
+ 
 
 class generate_const_database
 {
