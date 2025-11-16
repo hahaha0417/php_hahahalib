@@ -76,6 +76,26 @@ class curl
 
     }
 
+    public function Put($url, &$data, $size, &$information, $header = [] )
+    {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_PUT, true);
+        curl_setopt($ch, CURLOPT_INFILE, $data);
+        curl_setopt($ch, CURLOPT_INFILESIZE, $size);
+
+
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $result = curl_exec($ch);
+        $info = curl_getinfo($ch);
+
+        curl_close($ch);
+        return $result;
+
+    }
+
 
   
 } 
