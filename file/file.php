@@ -59,7 +59,7 @@ class file
     }
 
     // 取得所有目錄
-    public function Get_Directory_All($dir, &$results = []) 
+    public function Get_Directory_All($dir, &$results = [], $recursive = true) 
     {
         if(!is_dir($dir))
         {
@@ -73,7 +73,11 @@ class file
             if (!is_dir($path)) {
                 // $results[] = $path;
             } else if ($value != "." && $value != "..") {
-                $this->Get_Directory_All($path, $results);
+                if($recursive)
+                {
+                    $this->Get_Directory_All($path, $results);
+                }
+                
                 $results[] = $path;
             }
         }
@@ -82,7 +86,7 @@ class file
     }
 
     // 取得所有檔案
-    public function Get_File_All($dir, &$results = []) 
+    public function Get_File_All($dir, &$results = [], $recursive = true) 
     {
         if(!is_dir($dir))
         {
@@ -96,7 +100,11 @@ class file
             if (!is_dir($path)) {
                 $results[] = $path;
             } else if ($value != "." && $value != "..") {
-                $this->Get_File_All($path, $results);
+                if($recursive)
+                {
+                    $this->Get_File_All($path, $results);
+                }
+                
                 // $results[] = $path;
             }
         }
