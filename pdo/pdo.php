@@ -43,6 +43,8 @@ class pdo
             $pdo = new \PDO("mysql:host={$host};port={$port};dbname={$name}", $user, $password, $options);
             // $pdo->exec("SET CHARACTER SET {$charset}");
             $this->Pdo = $pdo;
+
+            return $this;
         } catch (\PDOException $e) {
             throw new \PDOException($e->getMessage());
         }
@@ -73,6 +75,8 @@ class pdo
             $pdo = new \PDO("mysql:host={$host};port={$port};dbname={$name}", $user, $password, $options);
             // $pdo->exec("SET CHARACTER SET {$charset}");
             $this->Pdo = $pdo;
+
+            return $this;
         } catch (\PDOException $e) {
             throw new \PDOException($e->getMessage());
         }

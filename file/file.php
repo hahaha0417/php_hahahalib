@@ -23,7 +23,7 @@ class file
                 unlink($path);
             } else if ($value != "." && $value != "..") {
                 $this->Delete_Tree($path);
-                rmdir($path);
+                
             }
         }
 
