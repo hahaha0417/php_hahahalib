@@ -226,6 +226,24 @@ class pdo
     }
 
     // ----------------------------
+    // 資料庫是否存在
+    // ----------------------------
+    public function Is_Database($name)
+    {
+        $pdo = $this->Pdo;
+        
+        $sql = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '{$name}'";
+
+        
+        $rows = [];
+        $this->Query($sql, $rows, [], \PDO::FETCH_BOTH);
+        
+        return count($rows) > 0;
+
+    }
+
+
+    // ----------------------------
     // 刪除資料庫
     // ----------------------------
     public function Drop_Database($name)
@@ -274,6 +292,22 @@ class pdo
         return $result;
 
     }
+
+    // ----------------------------
+    // 更名資料表
+    // ----------------------------
+    // Rename_Table("a_db.old_table", "b_db.new_table");
+    public function Rename_Table($old_name, $new_name)
+    {
+        $pdo = $this->Pdo;
+        
+        $sql = "rename table {$old_name} rename {$new_name}";
+
+        $result = $pdo->exec($sql);
+        return $result;
+
+    }
+    
 
     // ----------------------------
     // 刪除資料表
