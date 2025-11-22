@@ -21,7 +21,7 @@ class pdo
 
     public function Initial()
     {
-        $config_database = config_database::instance();
+        $config_database = config_database::Instance();
 
         $host = $config_database->host;
         $port = $config_database->port;
@@ -400,7 +400,7 @@ class pdo
     // 取得 database table
     public function Get_Tables($database, &$result)
     {
-        $pdo = pdo::instance();
+        $pdo = pdo::Instance();
 
         $sql = "SHOW TABLES FROM {$database}";
     
@@ -418,7 +418,7 @@ class pdo
     // 取得資料表所有欄位
     public function Get_Table_Fields($database, $table, &$result)
     {
-        $pdo = pdo::instance();
+        $pdo = pdo::Instance();
 
         $sql = "show full fields from `{$database}`.`{$table}`";
 
@@ -453,7 +453,7 @@ class pdo
     */
     public function Get_Tables_Fields($database, &$tables, &$result)
     {
-        $pdo = pdo::instance();
+        $pdo = pdo::Instance();
 
         foreach($tables as $key => $table)
         {
