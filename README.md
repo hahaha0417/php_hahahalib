@@ -1,6 +1,6 @@
 # php hahahalib
 
-方針 : 
+方針 : O-O Octane友善包(b)
 1. 上班用
 2. lite
 3. 沒有規劃做維護
